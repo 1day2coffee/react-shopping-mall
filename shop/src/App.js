@@ -1,10 +1,16 @@
 import logo from './logo.svg';
 import { Button, Navbar, Container, Nav } from 'react-bootstrap'
 import './App.css';
+import { useState } from 'react';
+import shoesData from './data.js';
 
 function App() {
+
+  let [shoes] = useState(shoesData);
+
   return (
     <div className="App">
+
       <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="#home">개발자 Hub</Navbar.Brand>
