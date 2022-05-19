@@ -25,14 +25,19 @@ function App() {
       <div className='main-bg'></div>
       <div className="container">
         <div className="row">
-          <Product></Product>
+          {shoes.map(function(a, i) {
+            return(
+            <Card shoes={shoes[i]}></Card>
+            )
+          })
+        }
         </div>
       </div>
     </div>
   );
 }
 
-function Product(props) {
+function Card(props) {
   return (
     <div className='product'>
       <div className="col-md-4">
