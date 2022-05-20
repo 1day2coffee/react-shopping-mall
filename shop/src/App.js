@@ -3,6 +3,7 @@ import { Button, Navbar, Container, Nav } from 'react-bootstrap'
 import './App.css';
 import { useState } from 'react';
 import shoesData from './data.js';
+import { Routes, Route, Link } from 'react-router-dom';
 
 function App() {
 
@@ -22,19 +23,27 @@ function App() {
         </Container>
       </Navbar>
 
-      <div className='main-bg'></div>
-      <div className="container">
-        <div className="row">
-          <div className='product'>
-            {shoes.map(function (a, i) {
-              return (
-                <Card shoes={shoes[i]} i={i + 1}></Card>
-              )
-            })
-            }
+      <Routes>
+        <Route path="/" element={<div>
+          <div className='main-bg'></div>
+          <div className="container">
+            <div className="row">
+              <div className='product'>
+                {shoes.map(function (a, i) {
+                  return (
+                    <Card shoes={shoes[i]} i={i + 1}></Card>
+                  )
+                })
+                }
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </div>} />
+
+        <Route path="/detail" element={<div>상세페이지</div>} />
+      </Routes>
+
+
     </div>
   );
 }
