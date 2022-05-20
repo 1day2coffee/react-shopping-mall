@@ -16,12 +16,13 @@ function App() {
         <Container>
           <Navbar.Brand href="#home">개발자 Hub</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Link to="/">홈</Link>
+            <Link to="/detail">상세페이지</Link>
           </Nav>
         </Container>
       </Navbar>
+
+
 
       <Routes>
         <Route path="/" element={<div>
