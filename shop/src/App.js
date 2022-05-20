@@ -16,8 +16,8 @@ function App() {
         <Container>
           <Navbar.Brand href="#home">개발자 Hub</Navbar.Brand>
           <Nav className="me-auto">
-            <Link to="/">홈</Link>
-            <Link to="/detail">상세페이지</Link>
+            <Nav.Link href="/">홈</Nav.Link>
+            <Nav.Link href="/detail">상세페이지</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
