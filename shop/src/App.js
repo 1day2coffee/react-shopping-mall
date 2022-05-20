@@ -2,12 +2,13 @@ import logo from './logo.svg';
 import { Button, Navbar, Container, Nav } from 'react-bootstrap'
 import './App.css';
 import { useState } from 'react';
-import shoesData from './data.js';
+import { shoesData, detailData } from './data.js';
 import { Routes, Route, Link } from 'react-router-dom';
 
 function App() {
 
   let [shoes] = useState(shoesData);
+  let [detail] = useState(detailData);
 
   return (
     <div className="App">
@@ -43,7 +44,7 @@ function App() {
 
         <Route path="/detail" element={<div>
           <div className="container">
-            <Detail />
+            {detail}
           </div>
         </div>} />
       </Routes>
@@ -64,21 +65,6 @@ function Card(props) {
   )
 }
 
-function Detail(props) {
-  return (
-    <div className="row">
-      <div className="col-md-6">
-        <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
-      </div>
-      <div className="col-md-6">
-        <h4 className="pt-5">상품명</h4>
-        <p>상품설명</p>
-        <p>120000원</p>
-        <button className="btn btn-danger">주문하기</button>
-      </div>
-    </div>
 
-  )
-}
 
 export default App;
