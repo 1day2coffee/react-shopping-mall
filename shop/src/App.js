@@ -32,7 +32,11 @@ function App() {
           <div className="container">
             <div className="row">
               <div className='product'>
-                {shoes.map(function (a, i) {
+                <button onClick={() => {}}>정렬하기</button>
+
+                {shoes
+                .sort((a,b) => a.price - b.price)
+                .map(function (a, i) {
                   return (
                     <Card shoes={shoes[i]} i={i + 1}></Card>
                   )
@@ -41,11 +45,10 @@ function App() {
             </div>
           </div>
         </div>} />
-
-        <Route path="/detail/:id" element={<Detail shoes={shoes}/>} />
+        <Route path="/detail/:id" element={<Detail shoes={shoes} />} />
         <Route path="*" element={<div>없는 페이지 </div>} />
 
-        <Route path="/event" element={<Event/>}>
+        <Route path="/event" element={<Event />}>
           <Route path="one" element={<p>첫 주문시 양배추즙 서비스</p>} />
           <Route path="two" element={<p>생일기념 쿠폰받기</p>} />
 
@@ -67,8 +70,8 @@ function Card(props) {
   )
 }
 
-function Event(){
-  return(
+function Event() {
+  return (
     <div>
       <h4>오늘의 이벤트</h4>
       <Outlet></Outlet>
