@@ -2,7 +2,7 @@ import './App.css';
 import { Button, Navbar, Container, Nav } from 'react-bootstrap';
 import { useState } from 'react';
 import { shoesData } from './data.js';
-import { Routes, Route, Link, useNavigate, Outlet} from 'react-router-dom';
+import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './pages/detail.js';
 
 function App() {
@@ -17,8 +17,8 @@ function App() {
         <Container>
           <Navbar.Brand href="#home">개발자 Hub</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link onClick={() => {navigate('/')}}>홈</Nav.Link>
-            <Nav.Link onClick={() => {navigate('/detail')}} >상세페이지</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/') }}>홈</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/detail') }} >상세페이지</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -34,13 +34,15 @@ function App() {
                 {shoes.map(function (a, i) {
                   return (
                     <Card shoes={shoes[i]} i={i + 1}></Card>
-                  )})}
+                  )
+                })}
               </div>
             </div>
           </div>
         </div>} />
 
-        <Route path="/detail" element={<Detail/>} />
+        <Route path="/detail" element={<Detail />} />
+        <Route path="*" element={<div>없는 페이지 </div>} />
       </Routes>
 
     </div>
@@ -57,7 +59,5 @@ function Card(props) {
     </div>
   )
 }
-
-
 
 export default App;
