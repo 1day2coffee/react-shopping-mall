@@ -1,14 +1,13 @@
-import logo from './logo.svg';
-import { Button, Navbar, Container, Nav } from 'react-bootstrap'
 import './App.css';
+import { Button, Navbar, Container, Nav } from 'react-bootstrap';
 import { useState } from 'react';
-import { shoesData, detailData } from './data.js';
-import { Routes, Route, Link } from 'react-router-dom';
+import { shoesData } from './data.js';
+import { Routes, Route, Link} from 'react-router-dom';
+import Detail from './pages/detail.js';
 
 function App() {
 
   let [shoes] = useState(shoesData);
-  let [detail] = useState(detailData);
 
   return (
     <div className="App">
@@ -34,21 +33,14 @@ function App() {
                 {shoes.map(function (a, i) {
                   return (
                     <Card shoes={shoes[i]} i={i + 1}></Card>
-                  )
-                })
-                }
+                  )})}
               </div>
             </div>
           </div>
         </div>} />
 
-        <Route path="/detail" element={<div>
-          <div className="container">
-            {detail}
-          </div>
-        </div>} />
+        <Route path="/detail" element={<Detail/>} />
       </Routes>
-
 
     </div>
   );
