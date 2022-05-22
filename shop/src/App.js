@@ -42,7 +42,7 @@ function App() {
           </div>
         </div>} />
 
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/detail/:id" element={<Detail shoes={shoes}/>} />
         <Route path="*" element={<div>없는 페이지 </div>} />
 
         <Route path="/event" element={<Event/>}>
