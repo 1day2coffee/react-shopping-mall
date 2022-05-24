@@ -43,12 +43,18 @@ function App() {
             <button onClick={() => {
               axios.get('https://codingapple1.github.io/shop/data2.json ')
                 .then((result) => {
-                  console.log(result.data);
+                  {
+                    result.data.map(function (a, i) {
+                      shoes.push(result.data[i])
+                    })
+                  }
+                  console.log(result.data[0]);
+                  console.log(shoes);
                 })
                 .catch(() => {
                   console.log('실패');
                 })
-            }}>버튼</button>
+            }}>더보기</button>
           </div>
         </div>} />
 
