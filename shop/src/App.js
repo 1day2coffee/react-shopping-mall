@@ -1,6 +1,6 @@
 import './App.css';
 import { Button, Navbar, Container, Nav } from 'react-bootstrap';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { shoesData } from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './pages/detail.js';
@@ -9,6 +9,8 @@ import axios from 'axios';
 function App() {
 
   let [shoes, setShoes] = useState(shoesData);
+  let [countButton, setCountButton] = useState(0);
+  let [pageNumber, setPageNumber] = useState(2);
   let navigate = useNavigate();
 
   return (
@@ -41,10 +43,12 @@ function App() {
               </div>
             </div>
             <button onClick={() => {
-              axios.get('https://codingapple1.github.io/shop/data2.json ')
+              axios.get('https://codingapple1.github.io/shop/data' + pageNumber + '.json')
                 .then((result) => {
                   let copy = [...shoes, ...result.data];
                   setShoes(copy);
+                  setCountButton(countButton + 1);
+                  setPageNumber(pageNumber + 1)
                 })
                 .catch(() => {
                   console.log('실패');
