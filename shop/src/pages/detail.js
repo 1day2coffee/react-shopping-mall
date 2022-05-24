@@ -3,12 +3,16 @@ import { useParams } from "react-router-dom";
 
 function Detail(props) {
 
+    useEffect(() => {
+        let alertTimer = setTimeout(() => { setAlert(false) }, 2000)
+        return () => {
+            clearTimeout(alertTimer)
+        }
+    }, [])
+
+
     let { id } = useParams();
     let [alert, setAlert] = useState(true);
-
-    useEffect(() => {
-        setTimeout(() => { setAlert(false) }, 2000)
-    })
 
     return (
         <div>
