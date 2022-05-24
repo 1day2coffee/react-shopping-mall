@@ -40,6 +40,15 @@ function App() {
                 })}
               </div>
             </div>
+            <button onClick={() => {
+              axios.get('https://codingapple1.github.io/shop/data2.json ')
+                .then((result) => {
+                  console.log(result.data);
+                })
+                .catch(() => {
+                  console.log('실패');
+                })
+            }}>버튼</button>
           </div>
         </div>} />
 
