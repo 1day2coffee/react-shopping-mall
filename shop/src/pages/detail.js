@@ -5,14 +5,21 @@ function Detail(props) {
 
     useEffect(() => {
         let alertTimer = setTimeout(() => { setAlert(false) }, 2000)
+
+        if (isNaN(input) === true) {
+            alert('경고: 숫자만 입력하세요.')
+        }
+
         return () => {
             clearTimeout(alertTimer)
         }
+
     }, [])
 
 
     let { id } = useParams();
     let [alert, setAlert] = useState(true);
+    let [input, setInput] = useState('');
 
     return (
         <div>
@@ -29,6 +36,7 @@ function Detail(props) {
                     </div>
                     <div className="col-md-6">
                         <h4 className="pt-5">{props.shoes[id].title}</h4>
+                        <input onChange={(e) => { setInput(e.target.valus) }} />
                         <p>{props.shoes[id].content}</p>
                         <p>{props.shoes[id].price} 원</p>
                         <button className="btn btn-danger">주문하기</button>
