@@ -48,18 +48,30 @@ function Detail(props) {
 
             <Nav variant="tabs" defaultActiveKey="link0">
                 <Nav.Item>
-                    <Nav.Link eventKey="link0">버튼0</Nav.Link>
+                    <Nav.Link onClick={()=>{changeTab(0)}}eventKey="link0">버튼0</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link eventKey="link1">버튼1</Nav.Link>
+                    <Nav.Link onClick={()=>{changeTab(1)}} eventKey="link1">버튼1</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link eventKey="link2">버튼2</Nav.Link>
+                    <Nav.Link onClick={()=>{changeTab(2)}} eventKey="link2">버튼2</Nav.Link>
                 </Nav.Item>
             </Nav>
+            <TabContents tab={tab}/>
         </div>
 
     )
+
+}
+
+function TabContents({tab}){
+    if(tab == 0){
+        return <div>내용0</div>
+    }else if (tab == 1){
+        return <div>내용1</div>
+    }else{
+        return <div>내용2</div>   
+    }
 }
 
 export default Detail;
