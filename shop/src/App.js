@@ -8,7 +8,7 @@ import axios from 'axios';
 
 function App() {
 
-  let [shoes] = useState(shoesData);
+  let [shoes, setShoes] = useState(shoesData);
   let navigate = useNavigate();
 
   return (
@@ -43,13 +43,8 @@ function App() {
             <button onClick={() => {
               axios.get('https://codingapple1.github.io/shop/data2.json ')
                 .then((result) => {
-                  {
-                    result.data.map(function (a, i) {
-                      shoes.push(result.data[i])
-                    })
-                  }
-                  console.log(result.data[0]);
-                  console.log(shoes);
+                  let copy = [...shoes, ...result.data];
+                  setShoes(copy);
                 })
                 .catch(() => {
                   console.log('실패');
