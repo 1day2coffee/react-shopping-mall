@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Nav } from 'react-bootstrap';
 
 function Detail(props) {
 
@@ -20,7 +21,8 @@ function Detail(props) {
     let { id } = useParams();
     let [alert, setAlert] = useState(true);
     let [input, setInput] = useState('');
-
+    let [tab, changeTab] = useState(0); 
+    
     return (
         <div>
             <div className="container">
@@ -43,6 +45,18 @@ function Detail(props) {
                     </div>
                 </div>
             </div>
+
+            <Nav variant="tabs" defaultActiveKey="link0">
+                <Nav.Item>
+                    <Nav.Link eventKey="link0">버튼0</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link eventKey="link1">버튼1</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link eventKey="link2">버튼2</Nav.Link>
+                </Nav.Item>
+            </Nav>
         </div>
 
     )
