@@ -65,6 +65,8 @@ function App() {
           <Route path="two" element={<p>생일기념 쿠폰받기</p>} />
 
         </Route>
+
+        <Route path="/cart" />
       </Routes>
 
     </div>
