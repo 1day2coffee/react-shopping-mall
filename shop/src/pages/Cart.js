@@ -19,10 +19,16 @@ function Cart() {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{state.stock}</td>
-                        <td>안녕</td>
-                        <td>안녕</td>
-                        <td>안녕</td> 
+                        <td>{[...state.stock][0].id}</td>
+                        <td>{[...state.stock][0].name}</td>
+                        <td>{[...state.stock][0].count}</td>
+                        <td>{[...state.stock][0].id}</td> 
+                    </tr>
+                    <tr>
+                        <td>{[...state.stock][1].id}</td>
+                        <td>{[...state.stock][1].name}</td>
+                        <td>{[...state.stock][1].count}</td>
+                        <td>{[...state.stock][1].id}</td> 
                     </tr>
                 </tbody>
             </Table>
