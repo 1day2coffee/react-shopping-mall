@@ -6,15 +6,14 @@ function Detail(props) {
 
     useEffect(() => {
         let alertTimer = setTimeout(() => { setAlert(false) }, 2000)
+        let timer = setTimeout(() => { setFade('end') }, 100)
 
         if (isNaN(input) === true) {
             alert('경고: 숫자만 입력하세요.')
         }
-        let timer = setTimeout(() => { setFade('end') }, 100)
-
 
         return () => {
-            clearTimeout(alertTimer)
+            clearTimeout(alertTimer, timer)
             setFade('')
         }
 
