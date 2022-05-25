@@ -10,21 +10,25 @@ function Detail(props) {
         if (isNaN(input) === true) {
             alert('경고: 숫자만 입력하세요.')
         }
+        let timer = setTimeout(() => { setFade('end') }, 100)
+
 
         return () => {
             clearTimeout(alertTimer)
+            setFade('')
         }
 
-    }, [])
+    }, [props])
 
 
     let { id } = useParams();
     let [alert, setAlert] = useState(true);
     let [input, setInput] = useState('');
     let [tab, changeTab] = useState(0);
+    let [fade, setFade] = useState()
 
     return (
-        <div>
+        <div className={`start ${fade}`}>
             <div className="container">
                 {
                     alert === true ?
