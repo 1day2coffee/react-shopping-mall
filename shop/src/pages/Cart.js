@@ -1,9 +1,9 @@
-import {Table} from 'react-bootstrap';
-import {useSelector} from 'react-redux';
+import { Table } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 function Cart() {
 
-    let state = useSelector((state)=>state)
+    let state = useSelector((state) => state)
     console.log(state.stock);
 
     return (
@@ -18,21 +18,21 @@ function Cart() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>{[...state.stock][0].id}</td>
-                        <td>{[...state.stock][0].name}</td>
-                        <td>{[...state.stock][0].count}</td>
-                        <td>{[...state.stock][0].id}</td> 
-                    </tr>
-                    <tr>
-                        <td>{[...state.stock][1].id}</td>
-                        <td>{[...state.stock][1].name}</td>
-                        <td>{[...state.stock][1].count}</td>
-                        <td>{[...state.stock][1].id}</td> 
-                    </tr>
+                    {
+                        state.stock.map((a, i) => 
+                            <tr key={i}>
+                                <td>{state.stock[i].id}</td>
+                                <td>{state.stock[i].name}</td>
+                                <td>{state.stock[i].count}</td>
+                                <td>{state.stock[i].id}</td>
+                            </tr>
+                        )
+                    }
+
+
                 </tbody>
             </Table>
         </div>
     )
 }
- export default Cart;
+export default Cart;
