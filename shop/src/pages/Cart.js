@@ -1,6 +1,11 @@
 import {Table} from 'react-bootstrap';
+import {useSelector} from 'react-redux';
 
 function Cart() {
+
+    let state = useSelector((state)=>state)
+    console.log(state.stock);
+
     return (
         <div>
             <Table>
@@ -14,7 +19,7 @@ function Cart() {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>1</td>
+                        <td>{state.stock}</td>
                         <td>안녕</td>
                         <td>안녕</td>
                         <td>안녕</td> 
