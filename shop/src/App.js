@@ -3,8 +3,9 @@ import { Button, Navbar, Container, Nav } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import { shoesData } from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
-import Detail from './pages/detail.js';
+import Detail from './pages/Detail.js';
 import axios from 'axios';
+import Cart from './pages/Cart.js';
 
 function App() {
 
@@ -66,7 +67,7 @@ function App() {
 
         </Route>
 
-        <Route path="/cart" />
+        <Route path="/cart" element={<Cart/>}/>
       </Routes>
 
     </div>
