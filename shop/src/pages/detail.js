@@ -21,8 +21,8 @@ function Detail(props) {
     let { id } = useParams();
     let [alert, setAlert] = useState(true);
     let [input, setInput] = useState('');
-    let [tab, changeTab] = useState(0); 
-    
+    let [tab, changeTab] = useState(0);
+
     return (
         <div>
             <div className="container">
@@ -48,24 +48,38 @@ function Detail(props) {
 
             <Nav variant="tabs" defaultActiveKey="link0">
                 <Nav.Item>
-                    <Nav.Link onClick={()=>{changeTab(0)}}eventKey="link0">버튼0</Nav.Link>
+                    <Nav.Link onClick={() => { changeTab(0) }} eventKey="link0">버튼0</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link onClick={()=>{changeTab(1)}} eventKey="link1">버튼1</Nav.Link>
+                    <Nav.Link onClick={() => { changeTab(1) }} eventKey="link1">버튼1</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link onClick={()=>{changeTab(2)}} eventKey="link2">버튼2</Nav.Link>
+                    <Nav.Link onClick={() => { changeTab(2) }} eventKey="link2">버튼2</Nav.Link>
                 </Nav.Item>
             </Nav>
-            <TabContents tab={tab}/>
+            <TabContents tab={tab} />
         </div>
 
     )
 
 }
 
-function TabContents({tab}){
-    return [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][tab]
+function TabContents({ tab }) {
+
+    let [fade, setFade] = useState()
+
+    useEffect(() => {
+        let timer = setTimeout(() => { setFade('end') }, 100)
+
+        return () => {
+            clearTimeout(timer)
+            setFade('')
+        }
+    }, [tab])
+
+    return (<div className={`start ${fade}`}>
+        {[<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][tab]}
+    </div>)
 }
 
 export default Detail;
