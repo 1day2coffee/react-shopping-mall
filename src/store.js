@@ -1,17 +1,5 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
-
-let user = createSlice({
-    name: 'user',
-    initialState: { name: 'kim', age: 20 },
-    reducers: {
-        changeName(state) {
-            state.name = 'park'
-        },
-        countUpAge(state, action) {
-            state.age += action.payload
-        }
-    }
-})
+import user from './store/userSlice.js'
 
 export let { changeName, countUpAge } = user.actions
 
@@ -22,7 +10,6 @@ let stock = createSlice({
         { id: 2, name: 'Grey Yordan', count: 1 }
     ],
     reducers: {
-
         countUpStock(state) {
             return state[0].count += 1
         }
