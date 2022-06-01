@@ -25,9 +25,9 @@ function App() {
         <Container>
           <Navbar.Brand href="#home">개발자 Hub</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link onClick={() => { navigate('/') }}>홈</Nav.Link>
-            <Nav.Link onClick={() => { navigate('/detail') }} >상세페이지</Nav.Link>
-            <Nav.Link onClick={() => { navigate('/event') }} >상세페이지</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/') }}>Home</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/detail') }} >Detail page</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/event') }} >Today event</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
