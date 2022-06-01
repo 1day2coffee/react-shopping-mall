@@ -9,6 +9,10 @@ import Cart from './pages/Cart.js';
 
 function App() {
 
+  useEffect(()=>{
+    localStorage.setItem('watched', JSON.stringify([]))
+  })
+
   let [shoes, setShoes] = useState(shoesData);
   let [countButton, setCountButton] = useState(0);
   let [pageNumber, setPageNumber] = useState(2);
