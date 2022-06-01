@@ -32,7 +32,7 @@ function Cart() {
                                 <td>{state.stock[i].count}</td>
                                 <td>{state.stock[i].id}</td>
                                 <td><button onClick={() => {
-                                    dispatch(countUpStock())
+                                    dispatch(countUpStock(state.stock[i].id))
                                 }}>+</button></td>
                             </tr>
                         )

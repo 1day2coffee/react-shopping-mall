@@ -10,8 +10,9 @@ let stock = createSlice({
         { id: 2, name: 'Grey Yordan', count: 1 }
     ],
     reducers: {
-        countUpStock(state) {
-            return state[0].count += 1
+        countUpStock(state, action) {
+            let productId = state.findIndex((a)=>{return a.id === action.payload})
+            state[productId].count++
         }
     }
 })
